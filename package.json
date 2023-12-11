@@ -4,8 +4,9 @@
   "description": "Ringku Server is a backend built in TypeScript, which serves as the core of the Ringku ecosystem.",
   "main": "server.js",
   "scripts": {
-    "lint": "eslint --fix src",
-    "format": "prettier --write \"**/*.md\" && eslint --fix src",
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint --fix src/",
+    "format": "prettier --write \"**/*.md\" && eslint --fix src/",
     "prepare": "husky install"
   },
   "type": "module",
@@ -23,15 +24,28 @@
       "eslint --fix"
     ]
   },
+  "dependencies": {
+    "@prisma/client": "5.7.0",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1"
+  },
   "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "express": "^4.18.2",
     "git-commit-msg-linter": "^5.0.4",
     "husky": "^8.0.3",
-    "lint-staged": "^15.2.0"
+    "lint-staged": "^15.2.0",
+    "prisma": "^5.7.0",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
   }
 }
