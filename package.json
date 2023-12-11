@@ -4,12 +4,28 @@
   "description": "Ringku Server is a backend built in TypeScript, which serves as the core of the Ringku ecosystem.",
   "main": "server.js",
   "scripts": {
-
+    "lint": "eslint --fix src",
+    "format":"prettier --write \"**/*.md\" && eslint --fix src",
+    "prepare": "husky install"
   },
+  "type": "module",
   "engines": {
     "node": ">=20.9.0"
   },
   "keywords": [],
   "author": "KambaScript",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "lint-staged": {
+    "*.{md}": [
+      "npx prettier --write"
+    ],
+    "*.{js}": [
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "git-commit-msg-linter": "^5.0.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  }
 }
