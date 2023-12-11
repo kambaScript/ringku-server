@@ -9,3 +9,22 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+model Perfil {
+  id        String   @id @default(uuid())
+  designation      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user  User[]
+
+}
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  avatar    String?
+  password  String
+  perfil    Perfil    @relation(fields: [perfil_fk], references: [id])
+  perfil_fk String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
