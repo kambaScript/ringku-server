@@ -1,0 +1,15 @@
+{
+  "name": "ringku-server",
+  "version": "1.0.0",
+  "description": "Ringku Server is a backend built in TypeScript, which serves as the core of the Ringku ecosystem.",
+  "main": "server.js",
+  "scripts": {
+
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "keywords": [],
+  "author": "KambaScript",
+  "license": "Apache-2.0"
+}
