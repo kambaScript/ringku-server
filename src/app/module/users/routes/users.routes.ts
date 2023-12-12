@@ -1,7 +1,7 @@
-import { Request, Response, Router } from 'express';
-export const usersRoutes = Router();
+import { Router } from 'express';
+import * as userController from '../controller/user.controller';
+const userRouter = Router()
 
-usersRoutes.get('/', (req: Request, res: Response) => {
-  res.send('hello users');
-});
-usersRoutes.put('/:id');
+
+userRouter.get('/users',userController.listUser)
+export {userRouter}; 

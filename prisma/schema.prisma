@@ -15,7 +15,7 @@ model Perfil {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   user  User[]
-
+ @@map("perfil")
 }
 model User {
   id        String   @id @default(uuid())
@@ -27,4 +27,5 @@ model User {
   perfil_fk String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+   @@map("users")
 }
