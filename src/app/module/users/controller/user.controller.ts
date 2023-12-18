@@ -33,7 +33,7 @@ export async function create(req: Request, res: Response) {
       );
       return res.status(201).json({ token });
     } else {
-      return res.status(200).json({ message: validation.message });
+      return res.status(401).json({ message: validation.message });
     }
   } catch (error) {
     console.log(error);
