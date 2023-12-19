@@ -9,22 +9,59 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-model Perfil {
-  id        String   @id @default(uuid())
-  designation      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  user  User[]
 
+model Profile {
+  id          String   @id @default(uuid())
+  designation String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User[]
+
+  @@map("profile")
 }
+
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  avatar    String?
-  password  String
-  perfil    Perfil    @relation(fields: [perfil_fk], references: [id])
-  perfil_fk String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  avatar     String? @default("user.png")
+  password   String
+  profile    Profile?  @relation(fields: [profile_fk], references: [id])
+  profile_fk String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  card       Card[]
+
+  @@map("users")
+}
+
+model Card {
+  id          String   @id @default(uuid())
+  card_No     String
+  expiry_date String
+  cvv         String
+  user        User     @relation(fields: [user_fk], references: [id])
+  user_fk  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@map("card")
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  designation     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  plan Plan[]
+  @@map("category")
+}
+model Plan {
+  id          String   @id @default(uuid())
+  designation    String
+  investiment Int
+  category        Category     @relation(fields: [category_fk], references: [id])
+  category_fk  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@map("plan")
 }
