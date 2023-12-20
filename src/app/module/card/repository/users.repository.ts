@@ -1,6 +1,5 @@
 import prisma from '../../../config/index';
 import conexao from '../../../config/index';
-import { IUserUpdateDTO } from '../dto/user.dto';
 import { IUserInterface } from '../types/interface';
 
 export const userRepository = {
@@ -20,22 +19,6 @@ export const userRepository = {
     try {
       const user = await prisma.user.create({ data });
       return user;
-    } catch (error) {
-      throw new Error(`Erro ao pesquisar : ${error}`);
-    }
-  },
-  async update(data: IUserUpdateDTO) {
-    try {
-      const updatedUser = await prisma.user.update({
-        where: { id: data.id },
-        data: {
-          name: data.name,
-          email: data.email,
-          avatar: data.avatar,
-          password: data.password,
-        },
-      });
-      return updatedUser;
     } catch (error) {
       throw new Error(`Erro ao pesquisar : ${error}`);
     }

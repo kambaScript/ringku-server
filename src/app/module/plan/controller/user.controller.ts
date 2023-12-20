@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import { Request, Response } from 'express';
 
 import { autenticationService } from '../../authentication/authentication';
-import { IUserDTO, IUserUpdateDTO } from '../dto/user.dto';
+import { IUserDTO } from '../dto/user.dto';
 import { userRepository } from '../repository/users.repository';
 import { UserService } from '../user.service';
 
@@ -46,24 +46,6 @@ export async function create(req: Request, res: Response) {
     }
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: 'Failed to create user.' });
-  }
-}
-export async function update(req: Request, res: Response) {
-  try {
-    const { name, email, password, userId } = req.body;
-    const saltOrRounds = 10;
-    const hashing = await bcrypt.hash(password, saltOrRounds);
-    const data: IUserUpdateDTO = {
-      id: userId,
-      name: name,
-      email: email,
-      password: hashing,
-    };
-    const user = await userRepository.update(data);
-    return res.status(201).json({ user });
-  } catch (error) {
-    console.error(error);
     return res.status(500).json({ error: 'Failed to create user.' });
   }
 }

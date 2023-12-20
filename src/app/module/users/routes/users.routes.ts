@@ -11,7 +11,7 @@ const userRouter = Router();
  *       200:
  *         description: Sucesso
  */
-userRouter.get('/users', userController.list);
+userRouter.get('/users', userController.users);
 /**
  * @swagger
  * /users:
@@ -50,4 +50,75 @@ userRouter.get('/users', userController.list);
  */
 
 userRouter.post('/users', userController.create);
+
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     description: Lista todos os Usuários
+ *     responses:
+ *       200:
+ *         description: Sucesso
+
+ * /users/{id}:
+ *   get:
+ *     description: Obtém um usuário pelo ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID do usuário a ser obtido
+ *         schema:
+ *           type: string  # Dependendo do tipo do ID ( string), ajuste o tipo aqui
+ *     responses:
+ *       200:
+ *         description: Sucesso ao obter o usuário
+ *       404:
+ *         description: Usuário não encontrado
+ */
+
+userRouter.get('/users/:id', userController.user);
+/**
+ * @swagger
+ * /users:
+ *   put:
+ *     summary: Atualizar usuário por ID
+ *     description: Atualiza os dados de um usuário existente com base no ID fornecido.
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - in: body
+ *         name: body
+ *         description: ID do usuário e novos dados a serem atualizados.
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             userId:
+ *               type: string
+ *             name:
+ *               type: string
+ *             email:
+ *               type: string
+ *               format: email
+ *             password:
+ *               type: string
+ *               format: password
+ *         example:
+ *           id: "1"  # ID do usuário a ser atualizado
+ *           name: "Novo Nome do Usuário"
+ *           email: "novousuario@example.com"
+ *           password: "novasenha123"
+ *     responses:
+ *       200:
+ *         description: Dados do usuário atualizados com sucesso
+ *       400:
+ *         description: Requisição inválida - verifique os parâmetros enviados
+ *       404:
+ *         description: Usuário não encontrado
+ */
+
+userRouter.put('/users', userController.update);
 export { userRouter };
