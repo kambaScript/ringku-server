@@ -80,7 +80,7 @@ userRouter.post('/users', userController.create);
 userRouter.get('/users/:id', userController.user);
 /**
  * @swagger
- * /users:
+ * /users/{id}:
  *   put:
  *     summary: Atualizar usuário por ID
  *     description: Atualiza os dados de um usuário existente com base no ID fornecido.
@@ -89,15 +89,19 @@ userRouter.get('/users/:id', userController.user);
  *     produces:
  *       - application/json
  *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: ID do usuário a ser atualizado
+ *         required: true
+ *         schema:
+ *           type: string  # Dependendo do tipo do ID (int, string, etc.), ajuste o tipo aqui
  *       - in: body
  *         name: body
- *         description: ID do usuário e novos dados a serem atualizados.
+ *         description: Novos dados do usuário.
  *         required: true
  *         schema:
  *           type: object
  *           properties:
- *             userId:
- *               type: string
  *             name:
  *               type: string
  *             email:
@@ -107,7 +111,6 @@ userRouter.get('/users/:id', userController.user);
  *               type: string
  *               format: password
  *         example:
- *           id: "1"  # ID do usuário a ser atualizado
  *           name: "Novo Nome do Usuário"
  *           email: "novousuario@example.com"
  *           password: "novasenha123"
@@ -120,5 +123,5 @@ userRouter.get('/users/:id', userController.user);
  *         description: Usuário não encontrado
  */
 
-userRouter.put('/users', userController.update);
+userRouter.put('/users/:id', userController.update);
 export { userRouter };

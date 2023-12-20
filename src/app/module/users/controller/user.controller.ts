@@ -51,11 +51,12 @@ export async function create(req: Request, res: Response) {
 }
 export async function update(req: Request, res: Response) {
   try {
-    const { name, email, password, userId } = req.body;
+    const { id } = req.params;
+    const { name, email, password } = req.body;
     const saltOrRounds = 10;
     const hashing = await bcrypt.hash(password, saltOrRounds);
     const data: IUserUpdateDTO = {
-      id: userId,
+      id: id,
       name: name,
       email: email,
       password: hashing,
