@@ -1,40 +1,41 @@
-## Descrição do Pull Request
+## Pull Request Description
 
-[Descreva de forma breve e clara o propósito e o escopo das mudanças propostas.]
+[Describe briefly and clearly the purpose and scope of the proposed changes.]
 
-## Tipo de Proposta
+## Proposal Type
 
-- [ ] Correção de bug
-- [ ] Nova funcionalidade
-- [ ] Melhoria
-- [ ] Reestruturação de código
-- [ ] Atualização de documentação
-- [ ] Outro (por favor, especifique)
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Improvement
+- [ ] Code restructuring
+- [ ] Documentation update
+- [ ] Other (please specify)
 
-## Issue Relacionada
+## Related Issue
 
-[Link para a issue relevante no GitHub, Jira, Trello, etc., se aplicável]
+[Link to the relevant issue on GitHub, Jira, Trello, etc., if applicable]
 
-## Lista de Tarefas
+## Task Checklist
 
-### Lista de Mudanças
+### List of Changes
 
-- [ ] Mudança 1
-- [ ] Mudança 2
+- [ ] Change 1
+- [ ] Change 2
 
-### Lista de Funcionalidades
+### List of Features
 
-- [ ] Funcionalidade 1
-- [ ] Funcionalidade 2
+- [ ] Feature 1
+- [ ] Feature 2
 
-## Dependências
+## Dependencies
 
-[Especifique se este pull request depende de outros pull requests ou branches]
+[Specify if this pull request depends on other pull requests or branches]
 
-## Instruções de Teste
+## Testing Instructions
 
-[Forneça instruções claras e detalhadas sobre como testar as mudanças.]
+[Provide clear and detailed instructions on how to test the changes.]
 
-## Detalhes Adicionais
+## Additional Details
 
-[Inclua qualquer contexto ou detalhes relevantes adicionais.]
+[Include any further relevant context or details.]
+
