@@ -3,13 +3,20 @@
   "version": "0.0.0",
   "description": "RingKu Server is a vital component of the RingKu ecosystem, with a REST API fundamental to its functionality.",
   "main": "index.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "engines": {
     "node": "v20.11.1"
   },
-  "keywords": ["API", "KingKu Server", "KambaScript", "KingKu"],
+  "keywords": [
+    "API",
+    "KingKu Server",
+    "KambaScript",
+    "KingKu"
+  ],
   "author": "KambaScript",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "20.11.24",
+    "typescript": "5.3.3"
+  }
 }
