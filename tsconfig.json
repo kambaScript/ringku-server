@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "outDir": "./dist",
+    "module": "CommonJS",
+    "target": "ES2022",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strictNullChecks": true,
+    "incremental": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
